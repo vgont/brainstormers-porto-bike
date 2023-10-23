@@ -11,10 +11,10 @@ export default function Home() {
       <PortoImage />
       <div className="mt-48 flex flex-col gap-10">
         <Link href="/tipo">
-          <Button isBlueColor>Cadastrar bikes</Button>
+          <Button isBlueColor>{"Cadastrar bikes"}</Button>
         </Link>
         <Link href="/bikes">
-          <Button>Visualizar bikes</Button>
+          <Button>{"Visualizar bikes"}</Button>
         </Link>
       </div>
     </main>
