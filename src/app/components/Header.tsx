@@ -8,7 +8,7 @@ interface IHeader {
 
 const Header: React.FC<IHeader> = ({ hideHomeButton }) => {
   return (
-    <header className="w-full h-20 bg-blue-500 flex flex-row items-center p-2">
+    <header className="w-full h-16 bg-blue-500 flex flex-row items-center p-2">
       {!hideHomeButton && (
         <LinkArrow isLeftArrow pathUrl={"/"}>
           Home
