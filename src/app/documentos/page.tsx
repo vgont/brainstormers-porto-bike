@@ -11,10 +11,16 @@ export default function DocumentosBike() {
       <Header />
       <Title>{"Anexe os seguintes documentos da bike:"}</Title>
       <div className="mt-20 flex flex-col gap-28">
-        <FileUploader idName="nota">{"Nota fiscal"}</FileUploader>
-        <FileUploader idName="numSerie">{"N.º de série"}</FileUploader>
+        <FileUploader idName="nota" pathImageExample="/images/exampleNF.jpg">
+          {"Nota fiscal"}
+        </FileUploader>
+        <FileUploader
+          idName="numSerie"
+          pathImageExample="/images/exampleNumSerie.jpg"
+        >
+          {"N.º de série"}
+        </FileUploader>
       </div>
-
       <Footer pathUrlBack="/modificacoes" pathUrlNext="/" />
     </main>
   );

@@ -2,15 +2,18 @@ import Image from "next/image";
 import { PropsWithChildren, useState } from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { ImCheckmark } from "react-icons/im";
+
 import Modal from "./Modal";
 
 interface IFileUploaderProps {
   idName: string;
+  pathImageExample: string;
 }
 
 const FileUploader: React.FC<IFileUploaderProps & PropsWithChildren> = ({
   children,
   idName,
+  pathImageExample,
 }) => {
   const [isUploaded, setIsUploaded] = useState<boolean>(false);
 
@@ -58,7 +61,11 @@ const FileUploader: React.FC<IFileUploaderProps & PropsWithChildren> = ({
       <span className="text-blue-600 text-2xl">
         {isUploaded ? ImCheckmark() : null}
       </span>
-      <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <Modal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        pathImageExample={pathImageExample}
+      />
     </div>
   );
 };

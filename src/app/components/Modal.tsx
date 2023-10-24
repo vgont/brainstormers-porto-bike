@@ -1,18 +1,34 @@
+import Image from "next/image";
+import { ImCross } from "react-icons/im";
+import SubTitle from "./SubTitle";
+
 interface IModal {
   isModalOpen: boolean;
   setIsModalOpen: (isOpen: false) => void;
+  pathImageExample: string;
 }
 
-const Modal: React.FC<IModal> = ({ isModalOpen, setIsModalOpen }) => {
+const Modal: React.FC<IModal> = ({
+  isModalOpen,
+  setIsModalOpen,
+  pathImageExample,
+}) => {
   if (isModalOpen)
     return (
-      <div className="fixed inset-10 flex items-center justify-center z-50 w-3/4 h-2/3 m-auto bg-gray-400 rounded text-white">
+      <div className="fixed inset-0 flex flex-col items-center justify-center w-3/4 h-fit gap-12 p-2 m-auto bg-gray-300 rounded text-white border-solid border-2 border-gray-400 bg-opacity-80 backdrop-blur">
         <button
-          className="text-black font-extrabold self-start mr-auto ml-2"
+          className="text-gray-600 font-extrabold justify-self-start self-start"
           onClick={() => setIsModalOpen(false)}
         >
-          X
+          {ImCross()}
         </button>
+        <SubTitle>{"Tire a foto seguindo o exemplo: "}</SubTitle>
+        <Image
+          alt="example_nf"
+          src={pathImageExample}
+          width={260}
+          height={260}
+        />
       </div>
     );
   return null;
