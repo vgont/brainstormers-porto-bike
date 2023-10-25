@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import Button from "./Button";
 
 interface IBikeTypes {
@@ -7,7 +8,6 @@ interface IBikeTypes {
 
 const BikeTypes: React.FC<IBikeTypes> = ({ bikeTypes }) => {
   const [bikeType, setBikeType] = useState<string>("");
-
   return (
     <div className="flex flex-col mt-24 gap-10">
       {bikeTypes.map((type) => (
