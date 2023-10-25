@@ -9,7 +9,7 @@ export default function TipoBike() {
   const bikeTypes: string[] = ["Tradicional", "Performance", "Mountain Bike"];
 
   return (
-    <main className="flex flex-col justify-center items-center">
+    <main className="flex flex-col justify-center items-center h-screen">
       <Header />
       <Title>{"Qual tipo da sua bicicleta?"}</Title>
       <BikeTypes bikeTypes={bikeTypes} />

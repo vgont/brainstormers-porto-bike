@@ -8,9 +8,9 @@ import BikeComplement from "../components/BikeComplement";
 
 export default function ModificacoesBike() {
   const [isModified, setIsModified] = useState(false);
-  const [isAccessory, setIsAccessory] = useState(false);
+  const [haveAcessory, setHaveAcessory] = useState(false);
   return (
-    <main className="flex flex-col justify-center items-center">
+    <main className="flex flex-col justify-center items-center h-screen">
       <Header />
       <Title>{"Sua bike possui"}</Title>
       <div className="flex flex-col space-x-2">
@@ -20,7 +20,7 @@ export default function ModificacoesBike() {
         />
         <BikeComplement
           complement="Acessórios"
-          onclick={() => setIsAccessory(!isAccessory)}
+          onclick={() => setHaveAcessory(!haveAcessory)}
         />
       </div>
       <Footer pathUrlBack="/tipo" pathUrlNext="/documentos" />

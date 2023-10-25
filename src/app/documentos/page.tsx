@@ -7,7 +7,7 @@ import Title from "../components/Title";
 
 export default function DocumentosBike() {
   return (
-    <main className="flex flex-col justify-center items-center">
+    <main className="flex flex-col justify-center items-center h-screen">
       <Header />
       <Title>{"Anexe os seguintes documentos da bike:"}</Title>
       <div className="mt-20 flex flex-col gap-28">
@@ -21,7 +21,7 @@ export default function DocumentosBike() {
           {"N.º de série"}
         </FileUploader>
       </div>
-      <Footer pathUrlBack="/modificacoes" pathUrlNext="/" />
+      <Footer pathUrlBack="/modificacoes" pathUrlNext="/fotos" />
     </main>
   );
 }

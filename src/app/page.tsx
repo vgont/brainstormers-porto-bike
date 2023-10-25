@@ -7,7 +7,7 @@ import PortoImage from "./components/PortoImage";
 export default function Home() {
   return (
     <main className="flex flex-col justify-center items-center">
-      <Header />
+      <Header hideHomeButton />
       <PortoImage />
       <div className="mt-48 flex flex-col gap-10">
         <Link href="/tipo">
