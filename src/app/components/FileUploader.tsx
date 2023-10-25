@@ -33,18 +33,19 @@ const FileUploader: React.FC<IFileUploaderProps & PropsWithChildren> = ({
   };
 
   return (
-    <div className="flex flex-row justify-center items-center gap-5">
+    <div className="flex flex-row justify-center items-center">
       <button className="text-blue-500 text-lg" onClick={handleInfoClick}>
         {BsFillInfoCircleFill()}
       </button>
       <label
         htmlFor={idName}
-        className={`flex flex-row h-14 p-5 justify-center items-center rounded-lg font-semibold w-full gap-5
-        ${isInfoRead ? "bg-blue-500 text-white" : "bg-blue-300 text-gray-400"}`}
+        className={`flex flex-row p-3 justify-center items-center rounded-lg font-semibold mx-3 gap-3
+        ${isInfoRead ? "bg-blue-500 text-white" : "bg-blue-300 text-gray-400"}
+        ${isUploaded ? "w-full" : "w-full mr-9"}`}
       >
         {children}
         <Image
-          className="mx-auto"
+          className="ml-auto"
           src="/images/camera.png"
           alt="arrow img"
           width={31}
@@ -58,8 +59,11 @@ const FileUploader: React.FC<IFileUploaderProps & PropsWithChildren> = ({
         onChange={handleFileUpload}
         disabled={isInfoRead ? false : true}
       />
-      <span className="text-blue-600 text-2xl">
-        {isUploaded ? ImCheckmark() : null}
+      <span
+        className="text-blue-600 text-2xl"
+        hidden={isUploaded ? false : true}
+      >
+        {ImCheckmark()}
       </span>
       <Modal
         isModalOpen={isModalOpen}
