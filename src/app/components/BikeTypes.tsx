@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import useBikeStore from "../stores/useBikeStore";
 import Button from "./Button";
 
 interface IBikeTypes {
@@ -7,15 +6,15 @@ interface IBikeTypes {
 }
 
 const BikeTypes: React.FC<IBikeTypes> = ({ bikeTypes }) => {
-  const [bikeType, setBikeType] = useState<string>("");
+  const { setType } = useBikeStore();
+
   return (
     <div className="flex flex-col mt-24 gap-10">
-      {bikeTypes.map((type) => (
-        <Button key={type} onclick={() => setBikeType(type)}>
-          {type}
+      {bikeTypes.map((bikeType) => (
+        <Button key={bikeType} onclick={() => setType(bikeType)}>
+          {bikeType}
         </Button>
       ))}
-      {bikeType}
     </div>
   );
 };

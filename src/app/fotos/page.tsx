@@ -1,13 +1,12 @@
 "use client";
 
 import FileUploader from "../components/FileUploader";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Title from "../components/Title";
 
 export default function FotosBike() {
   return (
-    <main className="flex flex-col justify-center items-center h-screen">
+    <main className="flex flex-col justify-center items-center">
       <Header />
       <Title>{"Anexe as seguintes fotos da bike:"}</Title>
       <div className="mt-20 flex flex-col gap-28">
@@ -21,7 +20,7 @@ export default function FotosBike() {
           {"Lado direito"}
         </FileUploader>
       </div>
-      <Footer pathUrlBack="/documentos" pathUrlNext="/fotos" />
+      <button className="mt-10">submit</button>
     </main>
   );
 }

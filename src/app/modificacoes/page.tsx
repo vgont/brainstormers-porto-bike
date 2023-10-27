@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Title from "../components/Title";
 import BikeComplement from "../components/BikeComplement";
+import useBikeStore from "../stores/useBikeStore";
 
 export default function ModificacoesBike() {
-  const [isModified, setIsModified] = useState(false);
-  const [haveAcessory, setHaveAcessory] = useState(false);
+  const { isModified, setIsModified } = useBikeStore();
+  const { haveAcessory, setHaveAcessory } = useBikeStore();
+
   return (
     <main className="flex flex-col justify-center items-center h-screen">
       <Header />
