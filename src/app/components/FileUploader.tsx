@@ -54,6 +54,7 @@ const FileUploader: React.FC<IFileUploaderProps & PropsWithChildren> = ({
       </label>
       <input
         type="file"
+        accept="image/*;capture=camera"
         id={idName}
         hidden
         onChange={handleFileUpload}
