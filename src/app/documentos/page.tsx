@@ -1,25 +1,22 @@
 "use client";
 
-import FileUploader from "../components/FileUploader";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import InputField from "../components/InputField";
 import Title from "../components/Title";
+import useBikeStore from "../stores/useBikeStore";
 
 export default function DocumentosBike() {
+  const { setSerialNumber } = useBikeStore();
+
   return (
     <main className="flex flex-col justify-center items-center h-screen">
       <Header />
-      <Title>{"Anexe os seguintes documentos da bike:"}</Title>
+      <Title>{"Informe as especificações da bike:"}</Title>
       <div className="mt-20 flex flex-col gap-28">
-        <FileUploader idName="nota" pathImageExample="/images/exampleNF.jpg">
-          {"Nota fiscal"}
-        </FileUploader>
-        <FileUploader
-          idName="numSerie"
-          pathImageExample="/images/exampleNumSerie.jpg"
-        >
-          {"N.º de série"}
-        </FileUploader>
+        <InputField idName="numSerie" setStateFunction={setSerialNumber}>
+          {"Número de Série"}
+        </InputField>
       </div>
       <Footer pathUrlBack="/modificacoes" pathUrlNext="/fotos" />
     </main>

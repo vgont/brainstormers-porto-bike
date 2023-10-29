@@ -10,7 +10,7 @@ export default function TipoBike() {
     <main className="flex flex-col justify-center items-center h-screen">
       <Header />
       <Title>{"Qual tipo da sua bicicleta?"}</Title>
-      <BikeTypes bikeTypes={["Tradicional", "Performance", "Mountain Bike"]} />
+      <BikeTypes bikeTypes={["Urbana", "Performance", "Mountain Bike"]} />
       <Footer pathUrlNext="/modificacoes" hideArrowBack />
     </main>
   );
