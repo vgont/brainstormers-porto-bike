@@ -4,16 +4,16 @@ import { persist } from "zustand/middleware";
 interface IBikeProps {
   type: string;
   serialNumber: string;
+  age: number;
   isElectric: boolean;
-  isModified: boolean;
-  haveAcessory: boolean;
+  powerInWatts: number | null;
   quantityOfModifies: number | null;
   quantityOfAcessories: number | null;
   setType: (type: string) => void;
   setSerialNumber: (serialNumber: string) => void;
+  setAge: (age: number) => void;
+  setPowerInWatts: (watts: number) => void;
   setisElectric: (isElectric: boolean) => void;
-  setIsModified: (isModified: boolean) => void;
-  setHaveAcessory: (haveAcessory: boolean) => void;
   setQuantityOfModifies: (quantity: number) => void;
   setQuantityOfAcessories: (quantity: number) => void;
 }
@@ -23,23 +23,22 @@ const useBikeStore = create(
     (set) => ({
       type: "",
       serialNumber: "",
+      age: 0,
       isElectric: false,
-      isModified: false,
-      haveAcessory: false,
+      powerInWatts: null,
       quantityOfModifies: null,
       quantityOfAcessories: null,
 
-      setType: (type: string) => set(() => ({ type: type })),
+      setType: (type) => set(() => ({ type: type })),
 
       setSerialNumber: (serialNumber: string) =>
         set(() => ({ serialNumber: serialNumber })),
 
-      setisElectric: (isElectric) => set(() => ({ isModified: isElectric })),
+      setAge: (age) => set(() => ({ age: age })),
 
-      setIsModified: (isModified) => set(() => ({ isModified: isModified })),
+      setisElectric: (isElectric) => set(() => ({ isElectric: isElectric })),
 
-      setHaveAcessory: (haveAcessory) =>
-        set(() => ({ haveAcessory: haveAcessory })),
+      setPowerInWatts: (watts) => set(() => ({ powerInWatts: watts })),
 
       setQuantityOfModifies: (quantity) =>
         set(() => ({ quantityOfModifies: quantity })),
