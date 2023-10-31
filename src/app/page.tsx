@@ -9,7 +9,7 @@ export default function Home() {
     <main className="flex flex-col justify-center items-center">
       <Header hideHomeButton />
       <PortoImage />
-      <div className="mt-48 flex flex-col gap-10">
+      <div className="mt-20 flex flex-col gap-10 h-1/2">
         <Link href="/tipo">
           <Button isBlueColor>{"Cadastrar bikes"}</Button>
         </Link>
