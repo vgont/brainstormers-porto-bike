@@ -1,19 +1,22 @@
 import SubTitle from "./SubTitle";
-import Toggle from "./Toggle";
+import Toggle, { IToggle } from "./Toggle";
 
 interface IBikeComplement {
   complement: string;
-  onclick: () => void;
 }
 
-const BikeComplement: React.FC<IBikeComplement> = ({ complement, onclick }) => {
+const BikeComplement: React.FC<IBikeComplement & IToggle> = ({
+  complement,
+  isToggled,
+  setIsToggled,
+}) => {
   return (
-    <div className="mt-28 flex flex-row justify-between gap-10">
+    <div className={`mt-28 flex flex-row justify-between gap-10`}>
       <SubTitle>
         {complement}
         {"?"}
       </SubTitle>
-      <Toggle onclick={onclick} />
+      <Toggle isToggled={isToggled} setIsToggled={setIsToggled} />
     </div>
   );
 };
