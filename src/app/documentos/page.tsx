@@ -27,8 +27,8 @@ export default function DocumentosBike() {
 
   const [isElectricState, setIsElectricState] = useState(false);
   const [serialNumberState, setSerialNumberState] = useState("");
-  const [ageState, setAgeState] = useState(0);
-  const [priceState, setPriceState] = useState(0);
+  const [ageState, setAgeState] = useState<number | null>(null);
+  const [priceState, setPriceState] = useState<number | null>(null);
   const [brandState, setBrandState] = useState("");
   const [modelState, setModelState] = useState("");
   const [maxAge] = useState(isElectricState ? 3 : 8);
@@ -76,7 +76,7 @@ export default function DocumentosBike() {
 
   //valida tempo de uso
   useEffect(() => {
-    setAge(ageState);
+    setAge(ageState as number);
     setIsAllValidated(false);
     if (ageState && ageState >= 0 && ageState <= maxAge) {
       setAgeIsValidated(true);
@@ -87,7 +87,7 @@ export default function DocumentosBike() {
 
   //valida valor
   useEffect(() => {
-    setPrice(priceState);
+    setPrice(priceState as number);
     setIsAllValidated(false);
     if (priceState && priceState >= 0 && priceState <= 100000) {
       setPriceIsValidated(true);
@@ -135,7 +135,7 @@ export default function DocumentosBike() {
           {"Número de Série"}
         </InputField>
         <InputField
-          valueInput={ageState}
+          valueInput={ageState as number}
           isValidated={isAgeValidated}
           placeHolder={isElectricState ? "0 até 3 anos" : "0 até 8 anos"}
           idName="tempoUso"
@@ -147,7 +147,7 @@ export default function DocumentosBike() {
 
         <InputField
           idName="valor"
-          valueInput={priceState}
+          valueInput={priceState as number}
           isValidated={isPriceValidated}
           placeHolder="ex: 5000"
           typeOfInput="number"
