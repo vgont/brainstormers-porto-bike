@@ -25,7 +25,7 @@ export default function TipoBike() {
   }, [type]);
 
   return (
-    <main className="flex flex-col justify-center items-center h-screen">
+    <main className="flex flex-col justify-center items-center">
       <Header />
       <Title>{"Qual tipo da sua bicicleta?"}</Title>
       <BikeTypes bikeTypes={["Urbana", "Performance", "Mountain Bike"]} />
