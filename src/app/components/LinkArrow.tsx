@@ -5,12 +5,14 @@ import { PropsWithChildren } from "react";
 interface ILinkArrow {
   pathUrl: string;
   isLeftArrow?: boolean;
+  isValidated?: boolean;
 }
 
 const LinkArrow: React.FC<ILinkArrow & PropsWithChildren> = ({
   pathUrl,
   children,
   isLeftArrow,
+  isValidated,
 }) => {
   if (isLeftArrow) {
     return (
@@ -30,8 +32,10 @@ const LinkArrow: React.FC<ILinkArrow & PropsWithChildren> = ({
   }
   return (
     <Link
-      href={`${pathUrl}`}
-      className="flex items-center gap-2.5 ml-auto text-white"
+      href={isValidated ? `${pathUrl}` : "#"}
+      className={`flex items-center gap-2.5 ml-auto ${
+        isValidated ? "text-white" : "text-gray-400"
+      }`}
     >
       {children}
       <Image
