@@ -22,6 +22,7 @@ interface IBikeProps {
   setIsElectric: (isElectric: boolean) => void;
   setQuantityOfModifies: (quantity: number) => void;
   setQuantityOfAcessories: (quantity: number) => void;
+  setAllDefaultState: () => void;
 }
 
 const useBikeStore = create(
