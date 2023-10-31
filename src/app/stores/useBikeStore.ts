@@ -4,16 +4,22 @@ import { persist } from "zustand/middleware";
 interface IBikeProps {
   type: string;
   serialNumber: string;
-  age: number;
+  brand: string;
+  model: string;
+  price: number | null;
+  age: number | null;
   isElectric: boolean;
   powerInWatts: number | null;
   quantityOfModifies: number | null;
   quantityOfAcessories: number | null;
   setType: (type: string) => void;
   setSerialNumber: (serialNumber: string) => void;
+  setBrand: (brand: string) => void;
+  setModel: (model: string) => void;
+  setPrice: (price: number) => void;
   setAge: (age: number) => void;
-  setPowerInWatts: (watts: number) => void;
-  setisElectric: (isElectric: boolean) => void;
+  setPowerInWatts: (watts: number | null) => void;
+  setIsElectric: (isElectric: boolean) => void;
   setQuantityOfModifies: (quantity: number) => void;
   setQuantityOfAcessories: (quantity: number) => void;
 }
@@ -22,8 +28,11 @@ const useBikeStore = create(
   persist<IBikeProps>(
     (set) => ({
       type: "",
+      brand: "",
+      model: "",
       serialNumber: "",
-      age: 0,
+      price: null,
+      age: null,
       isElectric: false,
       powerInWatts: null,
       quantityOfModifies: null,
@@ -31,12 +40,18 @@ const useBikeStore = create(
 
       setType: (type) => set(() => ({ type: type })),
 
-      setSerialNumber: (serialNumber: string) =>
+      setSerialNumber: (serialNumber) =>
         set(() => ({ serialNumber: serialNumber })),
+
+      setBrand: (brand) => set(() => ({ brand: brand })),
+
+      setModel: (model) => set(() => ({ model: model })),
+
+      setPrice: (price) => set(() => ({ price: price })),
 
       setAge: (age) => set(() => ({ age: age })),
 
-      setisElectric: (isElectric) => set(() => ({ isElectric: isElectric })),
+      setIsElectric: (isElectric) => set(() => ({ isElectric: isElectric })),
 
       setPowerInWatts: (watts) => set(() => ({ powerInWatts: watts })),
 
@@ -45,9 +60,23 @@ const useBikeStore = create(
 
       setQuantityOfAcessories: (quantity) =>
         set(() => ({ quantityOfAcessories: quantity })),
+
+      setAllDefaultState: () =>
+        set(() => ({
+          type: "",
+          brand: "",
+          model: "",
+          serialNumber: "",
+          price: null,
+          age: null,
+          isElectric: false,
+          powerInWatts: null,
+          quantityOfModifies: null,
+          quantityOfAcessories: null,
+        })),
     }),
     {
-      name: "CreateBikeIntent",
+      name: "BikeInfos",
     }
   )
 );
