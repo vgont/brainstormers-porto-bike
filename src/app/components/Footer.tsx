@@ -16,7 +16,7 @@ const Footer: React.FC<IFooter> = ({
   isValidated,
 }) => {
   return (
-    <div className="w-full h-16 bg-blue-500 flex flex-row items-center p-3 justify-between mt-20">
+    <div className="w-full h-16 bg-blue-500 flex flex-row items-center p-3 justify-between mt-auto">
       {!hideArrowBack && pathUrlBack && (
         <LinkArrow isLeftArrow pathUrl={pathUrlBack}>
           Voltar
