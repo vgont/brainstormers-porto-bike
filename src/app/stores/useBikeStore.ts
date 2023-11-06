@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface IBikeProps {
+  idClient: number | null;
   type: string;
   serialNumber: string;
   brand: string;
@@ -9,9 +10,11 @@ interface IBikeProps {
   price: number | null;
   age: number | null;
   isElectric: boolean;
+  category: string;
   powerInWatts: number | null;
   quantityOfModifies: number | null;
   quantityOfAcessories: number | null;
+  setIdClient: (id: number) => void;
   setType: (type: string) => void;
   setSerialNumber: (serialNumber: string) => void;
   setBrand: (brand: string) => void;
@@ -20,6 +23,7 @@ interface IBikeProps {
   setAge: (age: number) => void;
   setPowerInWatts: (watts: number | null) => void;
   setIsElectric: (isElectric: boolean) => void;
+  setCategory: (category: string) => void;
   setQuantityOfModifies: (quantity: number) => void;
   setQuantityOfAcessories: (quantity: number) => void;
   setAllDefaultState: () => void;
@@ -28,6 +32,7 @@ interface IBikeProps {
 const useBikeStore = create(
   persist<IBikeProps>(
     (set) => ({
+      idClient: 1,
       type: "",
       brand: "",
       model: "",
@@ -35,9 +40,12 @@ const useBikeStore = create(
       price: null,
       age: null,
       isElectric: false,
+      category: "",
       powerInWatts: null,
       quantityOfModifies: null,
       quantityOfAcessories: null,
+
+      setIdClient: (id) => set(() => ({ idClient: id })),
 
       setType: (type) => set(() => ({ type: type })),
 
@@ -54,6 +62,8 @@ const useBikeStore = create(
 
       setIsElectric: (isElectric) => set(() => ({ isElectric: isElectric })),
 
+      setCategory: (category) => set(() => ({ category: category })),
+
       setPowerInWatts: (watts) => set(() => ({ powerInWatts: watts })),
 
       setQuantityOfModifies: (quantity) =>
@@ -64,6 +74,7 @@ const useBikeStore = create(
 
       setAllDefaultState: () =>
         set(() => ({
+          idClient: 1,
           type: "",
           brand: "",
           model: "",
@@ -71,6 +82,7 @@ const useBikeStore = create(
           price: null,
           age: null,
           isElectric: false,
+          category: "",
           powerInWatts: null,
           quantityOfModifies: null,
           quantityOfAcessories: null,
