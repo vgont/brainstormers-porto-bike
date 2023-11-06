@@ -1,16 +1,16 @@
 "use client";
 
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import InputField from "../components/InputField";
-import Title from "../components/Title";
-import useAllValidatedStore from "../stores/useAllValidatedStore";
-import useBikeStore from "../stores/useBikeStore";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import InputField from "../../components/InputField";
+import Title from "../../components/Title";
+import useAllValidatedStore from "../../stores/useAllValidatedStore";
+import useBikeStore from "../../stores/useBikeStore";
 import { useState, useEffect } from "react";
 
 export default function DocumentosBike() {
   const {
-    isElectric,
+    category,
     serialNumber,
     age,
     price,
@@ -25,13 +25,12 @@ export default function DocumentosBike() {
 
   const { isAllValidated, setIsAllValidated } = useAllValidatedStore();
 
-  const [isElectricState, setIsElectricState] = useState(false);
   const [serialNumberState, setSerialNumberState] = useState("");
   const [ageState, setAgeState] = useState<number | null>(null);
   const [priceState, setPriceState] = useState<number | null>(null);
   const [brandState, setBrandState] = useState("");
   const [modelState, setModelState] = useState("");
-  const [maxAge] = useState(isElectricState ? 3 : 8);
+  const [maxAge] = useState(category === "Elétrica" ? 3 : 8);
 
   const [isSerialNumberValidated, setSerialNumberIsValidated] = useState(false);
   const [isAgeValidated, setAgeIsValidated] = useState(false);
@@ -54,7 +53,6 @@ export default function DocumentosBike() {
   };
 
   useEffect(() => {
-    setIsElectricState(isElectric);
     setIsAllValidated(false);
     setSerialNumberState(serialNumber);
     setAgeState(age as number);
@@ -137,7 +135,9 @@ export default function DocumentosBike() {
         <InputField
           valueInput={ageState as number}
           isValidated={isAgeValidated}
-          placeHolder={isElectricState ? "0 até 3 anos" : "0 até 8 anos"}
+          placeHolder={
+            category === "Elétrica" ? "0 até 3 anos" : "0 até 8 anos"
+          }
           idName="tempoUso"
           typeOfInput="number"
           setStateFunction={setAgeState}
@@ -179,16 +179,18 @@ export default function DocumentosBike() {
         </InputField>
       </div>
       <button
-        className="mt-10 bg-blue-500 text-white px-5 py-2 rounded"
+        className="mt-10 bg-blue-500 text-white px-5 py-2 rounded mb-20"
         onClick={handleIsAllValidated}
       >
         {"Validar"}
       </button>
-      <Footer
-        pathUrlBack="/modificacoes"
-        pathUrlNext="/fotos"
-        isValidated={isAllValidated}
-      />
+      <div className=" w-full">
+        <Footer
+          pathUrlBack="/pages/modificacoes"
+          pathUrlNext="/pages/fotos"
+          isValidated={isAllValidated}
+        />
+      </div>
     </main>
   );
 }

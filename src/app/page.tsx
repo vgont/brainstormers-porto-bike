@@ -10,10 +10,10 @@ export default function Home() {
       <Header hideHomeButton />
       <PortoImage />
       <div className="mt-20 flex flex-col gap-10 h-1/2">
-        <Link href="/tipo">
+        <Link href="/pages/tipo">
           <Button isBlueColor>{"Cadastrar bikes"}</Button>
         </Link>
-        <Link href="/bikes">
+        <Link href="/pages/bikes">
           <Button>{"Visualizar bikes"}</Button>
         </Link>
       </div>
