@@ -13,6 +13,9 @@ export default function FotosBike() {
     <main className="flex flex-col justify-center items-center h-screen">
       <Header />
       <Title>{"Anexe as seguintes fotos da bike:"}</Title>
+      <p className="italic mt-2">
+        clique no <strong>i</strong> para detalhes
+      </p>
       <div className="mt-20 flex flex-col gap-28">
         <FileUploader idName="bikeLeft" pathImageExample="/images/bikeLeft.jpg">
           {"Lado esquerdo"}
