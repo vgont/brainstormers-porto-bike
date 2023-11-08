@@ -5,21 +5,27 @@ import Header from "../../components/Header";
 import Title from "../../components/Title";
 import { bike } from "@/app/types/types";
 import Bike from "@/app/components/Bike";
+import useBikeStore from "@/app/stores/useBikeStore";
 
 export default function Bikes() {
+  const { idClient } = useBikeStore();
   const [allClientBikes, setlAllClientBikes] = useState<bike[]>();
   const [loadingBikes, setLoadingBikes] = useState(true);
+  const [idClientState] = useState(idClient);
 
   const fetchClientBikes = async () => {
     try {
-      const response = await fetch("http://localhost:8080/bikes");
+      const response = await fetch(
+        `http://localhost:8080/bikes/${idClientState}`
+      );
+      console.log(idClientState);
       if (response.ok) {
         const data: bike[] = await response.json();
         console.log(data);
         setlAllClientBikes(data);
       } else {
         console.error(
-          "Failed to fetch data:",
+          "---Failed to fetch data---: ",
           response.status,
           response.statusText
         );
@@ -43,7 +49,9 @@ export default function Bikes() {
       {!loadingBikes && (
         <div className="flex flex-row items-center justify-center mt-20 w-full flex-wrap">
           {allClientBikes ? (
-            allClientBikes.map((bike) => <Bike bike={bike} />)
+            allClientBikes.map((bike) => (
+              <Bike bike={bike} key={bike.serialNumber} />
+            ))
           ) : (
             <p className="font-semibold text-2xl">
               {"Você não possui bicicletas cadastradas"}
