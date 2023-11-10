@@ -9,7 +9,7 @@ import useBikeStore from "@/app/stores/useBikeStore";
 
 export default function Bikes() {
   const { idClient } = useBikeStore();
-  const [allClientBikes, setlAllClientBikes] = useState<bike[]>();
+  const [allClientBikes, setlAllClientBikes] = useState<bike[]>([]);
   const [loadingBikes, setLoadingBikes] = useState(true);
   const [idClientState] = useState(idClient);
 
@@ -48,7 +48,7 @@ export default function Bikes() {
 
       {!loadingBikes && (
         <div className="flex flex-row items-center justify-center mt-20 w-full flex-wrap">
-          {allClientBikes ? (
+          {allClientBikes.length > 0 ? (
             allClientBikes.map((bike) => (
               <Bike bike={bike} key={bike.serialNumber} />
             ))
