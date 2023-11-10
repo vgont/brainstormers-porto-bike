@@ -136,7 +136,7 @@ export default function DocumentosBike() {
           valueInput={ageState as number}
           isValidated={isAgeValidated}
           placeHolder={
-            category === "Elétrica" ? "0 até 3 anos" : "0 até 8 anos"
+            category === "Eletrica" ? "0 até 3 anos" : "0 até 8 anos"
           }
           idName="tempoUso"
           typeOfInput="number"
