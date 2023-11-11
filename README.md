@@ -18,13 +18,13 @@ $npm run dev
 Second, install requirements and run the python file:
 ```bash
 #going to the server directory
-$ cd .\client\
+$ cd .\server\
 
 #installing requirements
 $ pip install -r requirements.txt
 
 #running the python file
-$ python3 .\main.py
+$ python .\main.py
 ```
 ### Tecnologies
 - Next.js
