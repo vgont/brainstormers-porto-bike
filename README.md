@@ -3,7 +3,8 @@ Fullstack project created to automate the bicycle inspection process.
 
 ## Getting Started
 
-First, install dependencies and run the development server in the client directory:
+First, install dependencies and run the development server (or go to the deployed site) in the client directory:
+- deployed site: https://web-brainstormers-porto-bike.vercel.app
 ```bash
 #going to the client directory
 $ cd .\client\
