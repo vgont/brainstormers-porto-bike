@@ -31,8 +31,8 @@ class Connection:
                 values (SQ_T_CVB_BICICLETA.NEXTVAL,{bike.idClient}, {bike.age}, '{bike.serialNumber}', '{bike.type}', 
                 '{bike.brand}', '{bike.model}', {bike.price}, 
                 '{bike.category}', {verify_power_null(bike.powerInWatts)})
-                '''
-
+            '''
+            
             cursor = conn.cursor()
             try:
                 cursor.execute(sql)
@@ -42,7 +42,7 @@ class Connection:
 
     def select_bikes_by_client_id(client_id: int) -> List[Bicycle] or None:
         sql = f"select * from t_cvb_bicicleta where id_cliente = {client_id}"
-        with Connection('rm550657', '260305') as conn:
+        with Connection('rm98373', '120503') as conn:
             cursor = conn.cursor()
             try:
                 cursor.execute(sql)
